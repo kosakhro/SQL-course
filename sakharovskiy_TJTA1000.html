@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<head>
+	<title>Exercises</title>
+	<!--<link href="../default.css" title="css" rel="stylesheet" type="text/css"/>-->
+	<meta charset="UTF-8"/>
+	<style>
+			body {
+			background: #e8e8ec;
+		}
+		body:before {
+			width: 100%;
+			height: 5px;
+			content: '';
+			position: fixed;
+			top: -10px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,1);
+		}
+		#box {
+			overflow: auto;
+			position: relative;
+			width: 460px;
+			padding: 30px;
+			background: #dbdbdb;
+			margin: 0 auto;
+			margin-top: 60px;
+			box-shadow: 0 5px 6px -6px rgba(0,0,0,1);
+		}
+		#box_wide {
+			overflow: auto;
+			position: relative;
+			width: 80%;
+			padding: 30px;
+			background: #dbdbdb;
+			margin: 0 auto;
+			margin-top: 30px;
+		}
+		.smalltext {
+			border: 2px solid;
+			border-color: #868686;
+			border-radius: 1px;
+		}
+		#smalltext p{
+			font-size: 80%;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		#smalltext li{
+			font-size: 80%;
+			margin-left: 20px;
+			margin-right: 20px;
+		}
+		ol, ul, li {
+			font: normal normal 14px Verdana, sans-serif;
+		}
+
+		#subh {
+			font: normal normal 12px Verdana, sans-serif;
+		}
+		h1 {
+			font: normal normal 26px Verdana, sans-serif;
+			font-weight: bold;
+			margin-bottom: 0em;
+		}
+		h2 {
+			font: normal normal 20px Verdana, sans-serif;
+			font-weight: bold;
+			margin-bottom: 0em;
+			margin-top: 2.0em;
+		}
+		h3 {
+			font: normal normal 16px Verdana, sans-serif;
+			font-weight: bold;
+			margin-bottom: 0em;
+			margin-top: 2.0em;
+		}
+		p {
+			font: normal normal 14px Verdana, sans-serif;
+			text-align: justify;
+		}
+		#left, #right {
+			width: 200px; 
+			margin-left: 12px;
+			margin-right: 12px;
+			margin-top: 2px;
+			margin-bottom: 2px;
+			padding: 2px;
+		}
+		#left {   
+			float:left; 
+		}
+		#right {   
+			float:right; 
+		}
+
+	</style>
+</head>
+<body>
+
+<div id="box_wide">
+
+	<center>
+		<img src="TJTA1000_Hotel_Reservation_System.png"/>
+	</center>
+	<p>
+The domain in the SQL exercises is a Hotel Reservation System and related data records. The main goal of the will be to store, keep an main process reservations data, including clients, dates, rooms, etc. Clients could be from all the world. One could make a reservation, but other can be hosted. Empty reservations (no rooms booked) are allowed. 
+
+Some important exceptions: no overbooking, overhosting or check-in after check-out are prevented with example data due to Mockaroo functionality restrictions.
+	</p>
+
+	<h1>A1</h1>
+	<p>
+List all information regarding booked rooms with status 'check'.
+	</p>
+	<pre>
+SELECT * 
+FROM booked_rooms 
+WHERE status_name IN  ('check')  ;
+	</pre>
+	
+	<pre>
+ broom_id | reservation_id | room_id | status_name |   day_in   |  day_out   | checked_in | checked_out 
+----------+----------------+---------+-------------+------------+------------+------------+-------------
+        3 |             17 |      79 | check       | 2018-11-02 | 2019-01-24 | t          | t
+        9 |             17 |      61 | check       | 2018-06-08 | 2019-01-03 | f          | f
+       11 |              8 |      30 | check       | 2018-09-01 | 2019-01-20 | t          | f
+       12 |             89 |      60 | check       | 2018-08-10 | 2019-04-20 | f          | f
+       17 |             41 |      39 | check       | 2018-05-02 | 2019-03-02 | f          | f
+       26 |             85 |       2 | check       | 2018-11-02 | 2019-03-23 | t          | t
+       31 |             43 |      39 | check       | 2018-12-28 | 2019-01-08 | f          | f
+       33 |             29 |      77 | check       | 2018-09-07 | 2019-02-10 | f          | f
+       36 |             40 |      73 | check       | 2018-05-09 | 2019-02-07 | f          | f
+       39 |              8 |      98 | check       | 2018-10-26 | 2019-01-02 | t          | f
+       43 |             30 |     100 | check       | 2018-04-28 | 2019-02-21 | t          | t
+       46 |             74 |      73 | check       | 2018-11-24 | 2019-01-16 | t          | f
+       48 |              8 |      68 | check       | 2018-08-06 | 2019-02-10 | t          | f
+       52 |             87 |      45 | check       | 2018-11-03 | 2019-01-18 | f          | f
+       53 |             93 |      26 | check       | 2018-08-17 | 2019-02-18 | t          | t
+       54 |             59 |      75 | check       | 2018-10-01 | 2019-01-06 | f          | f
+       55 |             26 |      84 | check       | 2018-10-31 | 2019-02-03 | f          | f
+       56 |              8 |      68 | check       | 2018-05-23 | 2019-04-09 | f          | f
+       57 |             45 |      61 | check       | 2018-04-04 | 2019-04-20 | f          | f
+       58 |             23 |      30 | check       | 2018-04-19 | 2019-01-26 | t          | f
+       63 |             73 |      93 | check       | 2018-08-08 | 2019-03-22 | f          | f
+       66 |             57 |      71 | check       | 2018-08-15 | 2019-04-02 | f          | f
+       67 |             98 |      48 | check       | 2018-07-23 | 2019-02-04 | f          | f
+       68 |             47 |      14 | check       | 2018-11-23 | 2019-02-25 | t          | f
+       70 |             49 |       3 | check       | 2018-04-27 | 2019-03-29 | f          | f
+       77 |             31 |      64 | check       | 2018-07-25 | 2019-04-07 | t          | f
+       80 |             34 |      35 | check       | 2018-06-21 | 2019-03-24 | t          | f
+       85 |             40 |      63 | check       | 2018-05-16 | 2019-03-17 | f          | f
+       86 |             56 |      41 | check       | 2018-11-15 | 2019-04-02 | f          | f
+       87 |             92 |       5 | check       | 2018-12-28 | 2019-02-17 | f          | t
+       95 |             27 |       8 | check       | 2018-08-05 | 2019-03-05 | f          | t
+       96 |             96 |      40 | check       | 2018-08-11 | 2019-02-26 | f          | f
+       98 |             75 |       9 | check       | 2018-11-07 | 2019-03-01 | t          | t
+      103 |             46 |       2 | check       | 2018-05-21 | 2019-01-27 | f          | f
+      104 |             73 |      76 | check       | 2018-07-12 | 2019-04-06 | t          | t
+      105 |             77 |      89 | check       | 2018-05-31 | 2019-01-02 | f          | f
+      107 |             59 |      99 | check       | 2018-12-02 | 2019-01-08 | t          | f
+      114 |             13 |       5 | check       | 2018-08-09 | 2019-04-04 | f          | t
+      116 |             18 |      62 | check       | 2018-09-25 | 2019-03-27 | t          | t
+      127 |             35 |      90 | check       | 2018-04-06 | 2019-02-18 | f          | t
+      129 |             22 |      95 | check       | 2018-04-13 | 2019-02-07 | t          | t
+      133 |             71 |      43 | check       | 2018-04-09 | 2019-04-07 | f          | f
+      136 |             20 |      26 | check       | 2018-12-01 | 2019-04-13 | t          | f
+      143 |             73 |      90 | check       | 2018-08-01 | 2019-02-03 | t          | f
+      149 |              7 |      75 | check       | 2018-07-02 | 2019-04-18 | t          | f
+      153 |              7 |      31 | check       | 2018-07-02 | 2019-03-11 | t          | f
+      162 |             55 |      46 | check       | 2018-09-25 | 2019-01-17 | f          | t
+      164 |             27 |      87 | check       | 2018-07-13 | 2019-03-17 | t          | t
+      166 |              1 |      40 | check       | 2018-07-04 | 2019-02-21 | t          | t
+      168 |             60 |      28 | check       | 2018-05-01 | 2019-04-16 | t          | t
+      184 |             71 |      36 | check       | 2018-04-29 | 2019-02-06 | f          | f
+      185 |             57 |      90 | check       | 2018-06-22 | 2019-03-26 | t          | t
+      189 |             29 |      93 | check       | 2018-12-21 | 2019-01-14 | t          | f
+      191 |             23 |      22 | check       | 2018-06-25 | 2019-04-19 | f          | t
+      193 |             73 |      97 | check       | 2018-07-29 | 2019-01-21 | t          | t
+      202 |             67 |      75 | check       | 2018-11-04 | 2019-01-23 | f          | t
+      203 |             93 |      80 | check       | 2018-06-06 | 2019-01-18 | f          | t
+      204 |             54 |      26 | check       | 2018-09-08 | 2019-03-24 | t          | t
+      206 |             71 |      34 | check       | 2018-06-21 | 2019-03-07 | t          | t
+      208 |             25 |      86 | check       | 2018-06-24 | 2019-04-20 | t          | t
+      210 |              7 |      81 | check       | 2018-09-12 | 2019-02-04 | f          | t
+      214 |             75 |      49 | check       | 2018-11-25 | 2019-01-10 | f          | f
+      219 |             37 |      58 | check       | 2018-08-19 | 2019-03-01 | f          | t
+      226 |              6 |       5 | check       | 2018-11-19 | 2019-03-18 | f          | t
+      229 |             80 |      80 | check       | 2018-04-04 | 2019-03-27 | t          | f
+      230 |             99 |      29 | check       | 2018-11-30 | 2019-04-28 | t          | t
+      243 |             69 |      83 | check       | 2018-05-17 | 2019-04-10 | t          | f
+      244 |             68 |      86 | check       | 2018-07-30 | 2019-01-23 | t          | t
+      260 |              3 |      39 | check       | 2018-12-04 | 2019-04-05 | f          | f
+      269 |             52 |      53 | check       | 2018-05-17 | 2019-03-31 | t          | f
+      273 |             87 |       1 | check       | 2018-04-21 | 2019-01-07 | f          | t
+      281 |             13 |      47 | check       | 2018-12-19 | 2019-04-27 | t          | t
+      286 |             92 |      61 | check       | 2018-05-12 | 2019-02-06 | f          | f
+      290 |             23 |      62 | check       | 2018-10-17 | 2019-01-21 | f          | t
+      291 |             41 |       4 | check       | 2018-06-23 | 2019-02-05 | f          | f
+      292 |             97 |      97 | check       | 2018-12-08 | 2019-04-03 | t          | t
+      295 |             80 |       3 | check       | 2018-04-22 | 2019-01-14 | t          | t
+      296 |             10 |      39 | check       | 2018-08-20 | 2019-03-10 | t          | t
+      298 |              2 |      24 | check       | 2018-10-08 | 2019-02-21 | f          | t
+      300 |             27 |       5 | check       | 2018-12-30 | 2019-03-06 | f          | t
+      301 |             42 |       3 | check       | 2018-04-28 | 2019-01-02 | t          | f
+      302 |             19 |      21 | check       | 2018-08-28 | 2019-04-24 | t          | f
+      310 |             50 |      29 | check       | 2018-08-19 | 2019-03-21 | f          | t
+      315 |             13 |      77 | check       | 2018-09-15 | 2019-02-10 | t          | t
+      316 |             72 |      28 | check       | 2018-05-06 | 2019-03-04 | f          | f
+      318 |             29 |       8 | check       | 2018-08-29 | 2019-04-09 | f          | f
+      325 |             11 |      81 | check       | 2018-11-24 | 2019-03-15 | t          | t
+      327 |            100 |      36 | check       | 2018-08-04 | 2019-01-12 | t          | t
+      332 |             72 |      80 | check       | 2018-11-05 | 2019-03-12 | f          | f
+      335 |             14 |      26 | check       | 2018-06-25 | 2019-02-02 | t          | t
+      336 |             52 |      73 | check       | 2018-07-27 | 2019-04-12 | t          | f
+      338 |             20 |      67 | check       | 2018-12-29 | 2019-02-14 | t          | t
+      341 |             48 |      90 | check       | 2018-12-01 | 2019-02-21 | t          | f
+      348 |             24 |      31 | check       | 2018-11-01 | 2019-02-12 | f          | t
+      349 |             96 |      67 | check       | 2018-11-24 | 2019-01-19 | f          | f
+      354 |             21 |      33 | check       | 2018-06-27 | 2019-04-08 | f          | t
+      357 |             51 |      67 | check       | 2018-04-14 | 2019-02-03 | f          | f
+      358 |              4 |      70 | check       | 2018-06-11 | 2019-01-09 | t          | t
+      362 |             25 |      50 | check       | 2018-04-01 | 2019-01-06 | f          | t
+      370 |             28 |      50 | check       | 2018-08-13 | 2019-03-16 | t          | f
+      371 |             78 |     100 | check       | 2018-08-14 | 2019-03-30 | t          | f
+      377 |             86 |      27 | check       | 2018-07-22 | 2019-04-16 | t          | t
+      378 |             78 |      68 | check       | 2018-11-18 | 2019-01-01 | t          | f
+      379 |             78 |      93 | check       | 2018-06-15 | 2019-03-28 | t          | f
+      381 |             11 |      36 | check       | 2018-04-03 | 2019-03-02 | f          | f
+      385 |             77 |      67 | check       | 2018-05-21 | 2019-02-02 | t          | t
+      391 |              2 |      78 | check       | 2018-07-04 | 2019-01-20 | t          | t
+      402 |             68 |      48 | check       | 2018-05-28 | 2019-03-31 | f          | t
+      404 |             24 |      63 | check       | 2018-06-05 | 2019-02-10 | t          | f
+      407 |             86 |      32 | check       | 2018-08-12 | 2019-04-21 | t          | t
+      410 |             48 |      36 | check       | 2018-05-26 | 2019-04-14 | t          | f
+      414 |             26 |      34 | check       | 2018-10-17 | 2019-02-11 | t          | t
+      417 |             15 |      20 | check       | 2018-04-29 | 2019-03-09 | t          | f
+      423 |             47 |      57 | check       | 2018-12-28 | 2019-02-26 | f          | t
+      426 |             52 |      36 | check       | 2018-09-15 | 2019-01-24 | f          | t
+      427 |              1 |      22 | check       | 2018-06-29 | 2019-01-22 | t          | t
+      430 |             41 |      91 | check       | 2018-05-15 | 2019-04-22 | t          | f
+      431 |              5 |      62 | check       | 2018-12-26 | 2019-04-12 | t          | f
+      437 |             93 |      32 | check       | 2018-09-03 | 2019-02-27 | f          | t
+      439 |             66 |      64 | check       | 2018-08-14 | 2019-02-13 | t          | f
+      441 |             84 |      39 | check       | 2018-08-31 | 2019-01-10 | f          | t
+      442 |             19 |      99 | check       | 2018-11-28 | 2019-03-21 | t          | f
+      454 |             55 |      43 | check       | 2018-07-02 | 2019-02-12 | t          | f
+      457 |             73 |      94 | check       | 2018-04-04 | 2019-03-12 | t          | f
+      459 |             49 |      99 | check       | 2018-10-13 | 2019-04-09 | t          | t
+      464 |             97 |      48 | check       | 2018-07-21 | 2019-03-25 | f          | t
+      473 |              1 |      91 | check       | 2018-11-07 | 2019-02-13 | f          | t
+      474 |             58 |      61 | check       | 2018-07-12 | 2019-03-06 | f          | f
+      475 |              5 |      24 | check       | 2018-07-29 | 2019-03-07 | t          | f
+      477 |             68 |      94 | check       | 2018-04-23 | 2019-04-09 | t          | f
+      484 |             58 |      56 | check       | 2018-12-26 | 2019-03-29 | t          | t
+      486 |             48 |       8 | check       | 2018-11-03 | 2019-03-13 | t          | f
+      487 |             37 |      67 | check       | 2018-06-29 | 2019-02-22 | t          | t
+      490 |             72 |       5 | check       | 2018-08-31 | 2019-02-08 | f          | f
+      492 |             96 |      43 | check       | 2018-04-01 | 2019-04-03 | t          | f
+      496 |             60 |      39 | check       | 2018-07-17 | 2019-02-04 | f          | f
+      509 |             26 |      28 | check       | 2018-12-29 | 2019-04-29 | t          | t
+      513 |             27 |      77 | check       | 2018-09-14 | 2019-01-15 | t          | t
+      518 |             36 |      71 | check       | 2018-10-07 | 2019-03-19 | f          | f
+      523 |             41 |      10 | check       | 2018-12-28 | 2019-01-04 | t          | f
+      530 |             12 |      40 | check       | 2018-09-17 | 2019-03-06 | f          | f
+      533 |              1 |       2 | check       | 2018-12-15 | 2019-03-19 | f          | t
+      537 |             14 |      36 | check       | 2018-05-01 | 2019-02-08 | t          | f
+      545 |              6 |      62 | check       | 2018-04-27 | 2019-03-15 | f          | t
+      552 |             15 |      56 | check       | 2018-10-26 | 2019-03-08 | t          | t
+      559 |             99 |      30 | check       | 2018-09-28 | 2019-04-06 | t          | f
+      560 |             91 |      68 | check       | 2018-06-14 | 2019-03-05 | f          | t
+      562 |             72 |      81 | check       | 2018-09-17 | 2019-01-19 | t          | t
+      566 |             76 |      47 | check       | 2018-06-29 | 2019-03-04 | f          | f
+      567 |             46 |      44 | check       | 2018-12-06 | 2019-02-08 | f          | f
+      569 |             21 |      48 | check       | 2018-11-15 | 2019-04-23 | f          | f
+      576 |             68 |      44 | check       | 2018-10-25 | 2019-03-17 | t          | t
+      582 |             59 |       7 | check       | 2018-09-01 | 2019-01-26 | t          | t
+      587 |             35 |      40 | check       | 2018-09-19 | 2019-04-26 | t          | t
+      590 |              1 |      27 | check       | 2018-04-20 | 2019-03-04 | f          | f
+      594 |             41 |      44 | check       | 2018-07-17 | 2019-01-07 | f          | t
+      596 |             75 |      16 | check       | 2018-11-03 | 2019-01-06 | f          | t
+      602 |             94 |      51 | check       | 2018-11-16 | 2019-03-01 | t          | t
+      608 |             26 |      51 | check       | 2018-09-29 | 2019-01-11 | t          | f
+      612 |             90 |      55 | check       | 2018-07-30 | 2019-01-11 | t          | f
+      616 |              9 |      11 | check       | 2018-06-25 | 2019-04-16 | t          | t
+      617 |             72 |      29 | check       | 2018-08-02 | 2019-04-03 | t          | t
+      618 |             94 |      70 | check       | 2018-04-30 | 2019-01-14 | t          | f
+      624 |              3 |      59 | check       | 2018-04-08 | 2019-01-20 | t          | t
+      628 |             21 |     100 | check       | 2018-12-24 | 2019-02-05 | f          | t
+      629 |             53 |      54 | check       | 2018-04-11 | 2019-03-28 | f          | t
+      635 |              7 |     100 | check       | 2018-07-22 | 2019-01-08 | f          | t
+      643 |             33 |      18 | check       | 2018-12-27 | 2019-01-02 | f          | f
+      648 |             19 |      25 | check       | 2018-12-19 | 2019-02-10 | f          | t
+      661 |             20 |      28 | check       | 2018-05-30 | 2019-03-25 | f          | f
+      671 |             26 |      57 | check       | 2018-07-22 | 2019-02-14 | t          | f
+      674 |             44 |      59 | check       | 2018-08-07 | 2019-03-31 | f          | f
+      681 |             76 |      69 | check       | 2018-05-26 | 2019-01-24 | t          | f
+      684 |              9 |      97 | check       | 2018-07-21 | 2019-03-18 | t          | f
+      685 |             68 |      34 | check       | 2018-07-04 | 2019-03-22 | t          | f
+      689 |             90 |      25 | check       | 2018-04-25 | 2019-04-19 | f          | t
+      690 |             85 |      90 | check       | 2018-05-15 | 2019-03-27 | f          | t
+      695 |             92 |      35 | check       | 2018-05-11 | 2019-03-31 | t          | t
+      696 |             39 |      43 | check       | 2018-09-16 | 2019-01-18 | f          | t
+      700 |             78 |      76 | check       | 2018-06-10 | 2019-04-06 | t          | f
+      701 |             42 |      68 | check       | 2018-12-18 | 2019-02-04 | f          | t
+      702 |             29 |      36 | check       | 2018-06-01 | 2019-04-11 | f          | t
+      711 |             22 |     100 | check       | 2018-12-30 | 2019-03-05 | t          | t
+      714 |             23 |      13 | check       | 2018-05-02 | 2019-03-20 | t          | t
+      717 |             52 |      96 | check       | 2018-10-12 | 2019-04-07 | t          | t
+      718 |             56 |      11 | check       | 2018-08-15 | 2019-03-15 | f          | t
+      731 |             52 |       2 | check       | 2018-07-25 | 2019-01-12 | t          | t
+      735 |             36 |      84 | check       | 2018-06-09 | 2019-04-25 | t          | t
+      737 |            100 |      57 | check       | 2018-10-07 | 2019-03-22 | t          | f
+      738 |             81 |       4 | check       | 2018-09-26 | 2019-03-02 | t          | t
+      743 |             60 |      22 | check       | 2018-10-17 | 2019-01-15 | t          | f
+      756 |             66 |      71 | check       | 2018-05-12 | 2019-01-29 | t          | t
+      759 |             72 |      55 | check       | 2018-11-15 | 2019-02-07 | f          | t
+      765 |             43 |      25 | check       | 2018-11-13 | 2019-01-28 | t          | f
+      771 |             83 |      57 | check       | 2018-08-29 | 2019-03-20 | f          | t
+      775 |             26 |      19 | check       | 2018-05-28 | 2019-03-09 | f          | t
+      781 |             31 |      12 | check       | 2018-07-29 | 2019-01-17 | f          | t
+      784 |             96 |      55 | check       | 2018-06-28 | 2019-01-03 | t          | t
+      787 |             86 |      53 | check       | 2018-11-05 | 2019-04-23 | f          | t
+      791 |             72 |      67 | check       | 2018-05-20 | 2019-01-01 | f          | t
+      792 |             44 |      98 | check       | 2018-12-27 | 2019-04-12 | f          | t
+      793 |             35 |      93 | check       | 2018-09-17 | 2019-04-06 | f          | t
+      796 |              7 |       4 | check       | 2018-12-10 | 2019-02-06 | f          | t
+      799 |            100 |      20 | check       | 2018-08-22 | 2019-02-17 | f          | f
+      800 |             60 |      73 | check       | 2018-09-14 | 2019-01-17 | f          | f
+      805 |             15 |      42 | check       | 2018-06-06 | 2019-04-09 | f          | t
+      813 |             67 |      56 | check       | 2018-12-20 | 2019-03-24 | f          | f
+      817 |             43 |       2 | check       | 2018-06-19 | 2019-01-03 | f          | f
+      818 |             57 |      50 | check       | 2018-08-20 | 2019-03-13 | t          | t
+      820 |             10 |      71 | check       | 2018-08-01 | 2019-03-17 | f          | t
+      821 |             93 |      62 | check       | 2018-11-22 | 2019-02-02 | t          | t
+      825 |            100 |      46 | check       | 2018-12-18 | 2019-04-26 | t          | f
+      826 |             42 |      30 | check       | 2018-05-07 | 2019-02-09 | t          | t
+      832 |             45 |      97 | check       | 2018-05-12 | 2019-02-17 | t          | f
+      836 |             63 |      12 | check       | 2018-06-13 | 2019-03-10 | f          | f
+      843 |             99 |      27 | check       | 2018-06-13 | 2019-04-17 | t          | t
+      844 |             31 |      45 | check       | 2018-12-25 | 2019-04-04 | f          | t
+      845 |             50 |      57 | check       | 2018-10-09 | 2019-04-17 | t          | t
+      847 |             44 |      40 | check       | 2018-06-22 | 2019-01-17 | t          | t
+      848 |             67 |      54 | check       | 2018-06-21 | 2019-03-30 | t          | f
+      849 |              2 |      38 | check       | 2018-04-24 | 2019-01-11 | f          | f
+      856 |             55 |      13 | check       | 2018-12-19 | 2019-04-24 | f          | t
+      862 |             70 |      97 | check       | 2018-05-14 | 2019-04-25 | t          | f
+      867 |              9 |      90 | check       | 2018-12-29 | 2019-03-03 | f          | f
+      868 |             48 |      56 | check       | 2018-07-31 | 2019-03-01 | t          | t
+      872 |             54 |      25 | check       | 2018-04-10 | 2019-04-02 | t          | t
+      878 |             42 |      43 | check       | 2018-05-02 | 2019-03-21 | f          | f
+      885 |             76 |      49 | check       | 2018-08-30 | 2019-03-08 | f          | t
+      887 |             91 |      77 | check       | 2018-04-17 | 2019-02-01 | f          | f
+      899 |              1 |      47 | check       | 2018-04-09 | 2019-03-17 | t          | t
+      901 |             24 |      80 | check       | 2018-08-26 | 2019-04-27 | f          | f
+      908 |              9 |      53 | check       | 2018-04-21 | 2019-04-12 | t          | t
+      909 |             40 |      68 | check       | 2018-10-17 | 2019-02-11 | t          | t
+      912 |             31 |      63 | check       | 2018-05-16 | 2019-04-01 | f          | t
+      914 |             53 |      62 | check       | 2018-07-01 | 2019-03-03 | t          | t
+      921 |             39 |      58 | check       | 2018-06-18 | 2019-03-23 | t          | f
+      922 |             60 |      20 | check       | 2018-07-07 | 2019-03-26 | f          | f
+      923 |             95 |      35 | check       | 2018-07-22 | 2019-02-25 | t          | t
+      924 |             10 |       2 | check       | 2018-09-11 | 2019-04-08 | t          | t
+      925 |             17 |      52 | check       | 2018-10-21 | 2019-01-27 | t          | f
+      926 |             74 |      76 | check       | 2018-07-19 | 2019-01-03 | f          | f
+      930 |             85 |      42 | check       | 2018-07-04 | 2019-01-17 | f          | f
+      931 |             52 |       3 | check       | 2018-07-28 | 2019-03-27 | f          | t
+      939 |             82 |      61 | check       | 2018-09-21 | 2019-03-15 | t          | t
+      944 |             63 |      36 | check       | 2018-06-06 | 2019-02-04 | t          | f
+      950 |             93 |      74 | check       | 2018-08-05 | 2019-01-05 | f          | f
+      951 |             18 |      19 | check       | 2018-08-27 | 2019-02-20 | t          | f
+      952 |             77 |      55 | check       | 2018-06-14 | 2019-02-22 | f          | t
+      953 |             82 |      46 | check       | 2018-11-14 | 2019-02-01 | f          | t
+      959 |             25 |      84 | check       | 2018-12-04 | 2019-04-11 | t          | t
+      964 |             16 |       2 | check       | 2018-08-15 | 2019-02-04 | t          | t
+      969 |             93 |      73 | check       | 2018-10-25 | 2019-01-14 | f          | f
+      971 |             17 |      35 | check       | 2018-12-15 | 2019-04-28 | f          | f
+      973 |             93 |      27 | check       | 2018-06-17 | 2019-04-17 | t          | f
+      976 |             28 |      21 | check       | 2018-07-28 | 2019-01-03 | t          | t
+      978 |             75 |      34 | check       | 2018-05-13 | 2019-03-20 | f          | t
+      983 |             36 |      28 | check       | 2018-12-05 | 2019-01-14 | t          | f
+      989 |             78 |      20 | check       | 2018-08-07 | 2019-01-02 | t          | t
+	</pre>
+	
+	<p>
+errors considered: 71
+	</p>
+	
+	<h1>A2</h1>
+
+	<p>
+List names, surnames and countries of origins clients, whos country of origin is not empty
+and order by country name ascending.
+	</p>
+	<pre>
+SELECT csurame, cname, country_name
+FROM clients 
+WHERE country_name IS  NOT NULL  
+ORDER BY country_name ASC;
+	</pre>
+	
+	<pre>
+  csurame   |    cname    |                     country_name                     
+------------+-------------+------------------------------------------------------
+ Samwyse    | Paolo       | Antarctica
+            | Bertrand    | Austria
+            | Malvina     | Belgium
+ Drieu      | Tatiania    | Belgium
+ Bisgrove   | Worth       | Brunei Darussalam
+ Deppe      | Adler       | Bulgaria
+ Kellie     | Niels       | Burundi
+ Naismith   | Addie       | Canada
+ Milsap     | Suellen     | Central African Republic
+ Cullerne   | Parsifal    | Chad
+            | Harald      | China
+ Scahill    | Baxter      | Cocos (Keeling) Islands
+ Swan       | Jeremy      | Colombia
+ Marran     | Pearce      | Ethiopia
+ Prydden    | Langsdon    | Falkland Islands (Malvinas)
+ Gorden     | Lissa       | French Guiana
+ Moughtin   | Norina      | French Polynesia
+ Tomkins    | Richmond    | Gabon
+            | Anson       | Gabon
+ Silwood    | Doralynn    | Ghana
+ Sothcott   | Vanya       | Greece
+ Coard      | Minnaminnie | Japan
+ Liverseege | Waldon      | Lao People's Democratic Republic
+ Triggle    | Reinaldo    | Latvia
+ Zanolli    | Lorita      | Lebanon
+            | Quintina    | Lithuania
+            | Lazaro      | Macao
+            | Cirillo     | Malawi
+ Hegge      | Damita      | Maldives
+ Hailston   | Gavan       | Mozambique
+ Pettigrew  | Joelynn     | Myanmar
+ Harbar     | Dex         | Namibia
+ Hayfield   | Shermie     | Niger
+ Gettings   | Vitia       | Pakistan
+            | Margarethe  | Pakistan
+ Pealing    | Gretal      | Palau
+ Truce      | Shirl       | Paraguay
+ Doram      | Meryl       | Saint Vincent and the Grenadines
+ Botcherby  | Emmy        | Samoa
+ Kohrsen    | Cathi       | San Marino
+ Mallindine | Gayleen     | Slovenia
+ Brenneke   | Ivette      | Sudan
+ Bernt      | Wright      | Sweden
+ Sorsby     | Cassie      | Timor-Leste
+ Marzellano | Cal         | Tonga
+ Reach      | Ardelis     | Turks and Caicos Islands
+ Worge      | Lesley      | United Kingdom of Great Britain and Northern Ireland
+ Dimond     | Elka        | United States of America
+ Bebbell    | Nikki       | Uruguay
+ Kirvell    | Rea         | Vanuatu
+ Boyle      | Pail        | Western Sahara
+ Muddle     | Filmer      | Western Sahara
+ Gorrissen  | Maribel     | Yemen
+	</pre>
+	
+	<p>
+errors considered: 76
+	</p>
+
+
+    <h1>A3</h1>
+
+
+	<p>
+List all information regarding Family cottages or the number starts from '5' where description starts 'q' or ends 'r'
+	</p>
+	<pre>
+SELECT * 
+FROM rooms 
+WHERE (rdescript  LIKE 'q%' OR rdescript LIKE '%r') 
+AND (acc_shortname = 'perh' OR rnumber LIKE '5%')  ;
+	</pre>
+	
+	<pre>
+ id | acc_shortname |   rnumber   |                            rdescript                            
+----+---------------+-------------+-----------------------------------------------------------------
+  4 | perh          | 21-640-5924 | quis augue luctus tincidunt nulla mollis molestie lorem quisque
+ 17 | perh          | 51-191-7687 | rutrum ac lobortis vel dapibus at diam nam tristique tortor
+ 19 | eco           | 57-220-5414 | consectetuer eget rutrum at lorem integer
+ 27 | perh          | 70-759-4419 | dis parturient montes nascetur
+ 40 | perh          | 26-882-2760 | augue quam sollicitudin vitae consectetuer
+ 72 | perh          | 05-050-5845 | donec pharetra magna vestibulum aliquet ultrices erat tortor
+ 83 | cot           | 51-572-1593 | ligula in lacus curabitur
+ 90 | eco           | 52-425-0778 | quis justo maecenas rhoncus aliquam
+ 95 | sup           | 52-919-4482 | tellus semper interdum mauris ullamcorper
+	</pre>
+	
+	<p>
+errors considered: 63, 64
+	</p>
+
+
+    <h1>B4</h1>
+
+
+	<p>
+List of acrued amount and payed amount of reservations from booking.com
+	</p>
+	<pre>
+SELECT r.accrued_amount, r.payed_amount
+FROM reservations r, reserv_sources s 
+WHERE r.source_name = s.source_name 
+AND r.source_name = 'booking.com';
+	</pre>
+	
+	<pre>
+ accrued_amount | payed_amount 
+----------------+--------------
+        35,81Eu |     167,11Eu
+        20,20Eu |     164,11Eu
+        16,22Eu |             
+        91,27Eu |     154,71Eu
+        25,63Eu |             
+        65,45Eu |     176,24Eu
+        83,22Eu |     236,75Eu
+        48,99Eu |     152,05Eu
+        16,32Eu |             
+        97,00Eu |     180,53Eu
+        92,10Eu |     282,51Eu
+	</pre>
+	
+	<p>
+errors considered: 65, 67
+	</p>
+
+
+    <h1>B5</h1>
+
+
+	<p>
+List of booked rooms id, day-in and day-out, where room number stars '5' 
+and reservations came as walk-in.
+	</p>
+	<pre>
+SELECT b.room_id, b.day_in, b.day_out
+FROM booked_rooms b
+INNER JOIN rooms rm ON (b.room_id = rm.id) 
+INNER JOIN reservations rs ON (b.reservation_id = rs.id) 
+WHERE rm.rnumber LIKE '5%'
+AND rs.source_name = 'walk-in'
+ORDER BY b.room_id DESC;
+	</pre>
+	
+	<pre>
+ room_id |   day_in   |  day_out   
+---------+------------+------------
+      94 | 2018-12-29 | 2019-04-06
+      94 | 2018-08-10 | 2019-01-17
+      90 | 2018-10-21 | 2019-01-03
+      90 | 2018-06-22 | 2019-03-26
+      90 | 2018-05-15 | 2019-03-27
+      86 | 2018-09-30 | 2019-02-22
+      86 | 2018-10-29 | 2019-03-31
+      83 | 2018-08-24 | 2019-03-05
+      83 | 2018-06-18 | 2019-02-16
+      65 | 2018-12-08 | 2019-04-08
+      65 | 2018-08-19 | 2019-02-08
+      59 | 2018-07-27 | 2019-02-01
+      59 | 2018-08-07 | 2019-03-31
+      59 | 2018-05-29 | 2019-02-27
+      47 | 2018-06-29 | 2019-03-04
+      47 | 2018-06-24 | 2019-01-05
+      47 | 2018-07-14 | 2019-04-04
+      47 | 2018-12-19 | 2019-04-27
+      47 | 2018-12-28 | 2019-04-21
+      47 | 2018-11-12 | 2019-01-15
+      47 | 2018-07-29 | 2019-01-11
+      19 | 2018-05-15 | 2019-04-05
+      19 | 2018-11-13 | 2019-01-28
+      17 | 2018-05-30 | 2019-03-05
+      17 | 2018-08-14 | 2019-02-13
+      17 | 2018-11-05 | 2019-04-25
+	</pre>
+	
+	<p>
+errors considered: 57
+	</p>
+
+
+    <h1>B6</h1>
+
+
+	<p>
+List clients names and surnames, ordered ascending, who has hosted 
+and whoes country code starts A or B
+	</p>
+	<pre>
+SELECT c.cname, c.csurame
+FROM clients c
+WHERE EXISTS
+	(SELECT *
+	FROM hosted h
+	WHERE c.client_id = h.client_id 
+	AND EXISTS
+		(SELECT *
+		FROM countries cr
+		WHERE c.country_name = cr.country_name
+		AND (cr.iso_c_code LIKE 'B%' OR cr.iso_c_code LIKE 'A%' ))
+)
+ORDER BY c.cname ASC, c.csurame ASC;
+
+
+
+
+	</pre>
+	
+	<pre>
+  cname   | csurame  
+----------+----------
+ Adler    | Deppe
+ Bertrand | 
+ Malvina  | 
+ Niels    | Kellie
+ Paolo    | Samwyse
+ Tatiania | Drieu
+ Worth    | Bisgrove
+
+	</pre>
+	
+	<p>
+errors considered: 70
+	</p>
+
+
+    <h1>B7</h1>
+
+
+	<p>
+List room number and description, which are type of 'cot'
+and which are not booked before 2nd of May 2018
+	</p>
+	<pre>
+SELECT r.rnumber, r.rdescript
+FROM rooms r
+WHERE r.acc_shortname = 'cot'
+AND NOT EXISTS
+	(SELECT *
+	FROM booked_rooms br
+	WHERE br.room_id = r.id 
+	AND br.day_in < '2018-05-02');
+
+
+	</pre>
+	
+	<pre>
+   rnumber   |                    rdescript                     
+-------------+--------------------------------------------------
+ 16-309-7570 | vulputate luctus cum sociis natoque penatibus et
+ 82-533-1904 | rutrum rutrum neque aenean auctor
+ 33-793-3290 | eleifend pede libero quis
+
+	</pre>
+	
+	<p>
+errors considered: 57
+	</p>
+
+
+    <h1>B8</h1>
+
+
+	<p>
+List id and special request of reservations, which has no source 
+information and has at least 1 booked room
+	</p>
+	<pre>
+SELECT r.id, r.r_spec_request
+FROM reservations r
+WHERE NOT EXISTS
+	(SELECT *
+	FROM reserv_sources rs
+	WHERE r.source_name = rs.source_name)
+AND EXISTS
+	(SELECT *
+	FROM booked_rooms br
+	WHERE r.id = br.reservation_id);
+	</pre>
+	
+	<pre>
+ id  |           r_spec_request           
+-----+------------------------------------
+   1 | 
+   7 | 
+  23 | 
+  31 | Morbi ut odio.
+  35 | 
+  38 | 
+  59 | 
+  63 | 
+  64 | Pellentesque viverra pede ac diam.
+  78 | 
+  79 | 
+  80 | 
+  84 | 
+  90 | 
+ 100 | 
+	</pre>
+	
+	<p>
+errors considered:  no erros occured
+	</p>
+
+
+    <h1>B9</h1>
+
+
+
+	<p>
+List the number of booked rooms with day in between 1.10.-1.11.2018 
+with retaive name of columnn
+	</p>
+	<pre>
+
+SELECT COUNT(*) AS "rooms check-ins between 1.10.-1.11.2018" 
+FROM booked_rooms
+WHERE day_in BETWEEN '2018-10-01' AND '2018-11-01';
+
+	</pre>
+	
+ rooms check-ins between 1.10.-1.11.2018 
+-----------------------------------------
+
+                                     103
+	</pre>
+	
+	<p>
+errors considered: no erros occures
+	</p>
+
+
+    <h1>B10</h1>
+
+
+	<p>
+List reservation's cancellation status and room description 
+of which booked room has hosted the guest #50
+
+	</p>
+	<pre>
+SELECT 
+rs.cancel_status AS "Cancellation status", 
+r.rdescript AS "Room description"
+FROM 
+reservations rs, 
+booked_rooms br,
+rooms r,
+hosted h
+WHERE 
+rs.id = br.reservation_id
+AND br.room_id = r.id
+AND br.broom_id  = h.broom_id
+AND h.client_id = 50;
+	</pre>
+	
+	<pre>
+ Cancellation status |                          Room description                          
+---------------------+--------------------------------------------------------------------
+ f                   | consequat nulla nisl nunc nisl duis bibendum
+ t                   | lacinia sapien quis libero nullam sit amet
+ t                   | lacus morbi sem mauris laoreet ut rhoncus aliquet
+ f                   | euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh
+ t                   | orci pede venenatis non sodales sed tincidunt
+ f                   | quam pede lobortis ligula sit amet eleifend pede
+ t                   | natoque penatibus et magnis dis parturient montes
+ t                   | lacus morbi sem mauris laoreet ut rhoncus aliquet
+ t                   | aliquam non mauris morbi non lectus aliquam sit amet
+ t                   | mattis odio donec vitae nisi nam ultrices libero non
+	</pre>
+	
+	<p>
+errors considered: 70
+	</p>
+
+
+    <h1>B11</h1>
+
+
+
+	<p>
+List all information of reservation with maximum accrued amount
+whos source is the phone call
+	</p>
+	<pre>
+SELECT *
+FROM reservations
+WHERE source_name = 'phone' 
+AND accrued_amount =
+	(SELECT MAX(accrued_amount)
+	FROM reservations
+	WHERE source_name = 'phone' );
+	</pre>
+	
+	<pre>
+ id | source_name | client_id | cancel_status | prereserv_status | closed_status | accrued_amount | payed_amount | r_spec_request 
+----+-------------+-----------+---------------+------------------+---------------+----------------+--------------+----------------
+ 10 | phone       |        51 | t             | t                | f             |        97,51Eu |     139,63Eu | 
+(1 row)
+   3 |             17 |      79 | check       | 2018-11-02 | 2019-01-24 | t          | t
+
+	</pre>
+	
+	<p>
+errors considered: no logical errors (but syntax)
+	</p>
+
+
+    <h1>B12</h1>
+
+
+	<p>
+Name and surname of clients who has at least 3 reservations
+	</p>
+	<pre>
+SELECT c.cname, c.csurame
+FROM clients c
+WHERE 3 <=
+	(SELECT COUNT(DISTINCT r.id) 
+	FROM reservations r
+	WHERE c.client_id = r.client_id);
+	</pre>
+	
+	<pre>
+  cname   |  csurame   
+----------+------------
+ Joelynn  | Pettigrew
+ Shermy   | Jeanequin
+ Langsdon | Prydden
+ Francine | Vedishchev
+ Wright   | Bernt
+	</pre>
+	
+	<p>
+errors considered: no errors, just minor syntax
+	</p>
+
+
+    <h1>B13</h1>
+
+
+	<p>
+Clients name and surname who rented the same cottage as Luis Pidgeley
+	</p>
+	<pre>
+SELECT DISTINCT 
+c.cname, 
+c.csurame
+FROM 
+clients c, 
+reservations r1,
+reservations r2,
+booked_rooms br1, 
+booked_rooms br2 
+
+WHERE 
+c.client_id = r1.client_id AND 
+r1.id = br1.reservation_id AND 
+br1.room_id = br2.room_id AND 
+br2.reservation_id = r2.id AND 
+r2.client_id = 77 AND 
+c.client_id <> 77;
+	</pre>
+	
+	<pre>
+   cname   |    csurame    
+-----------+---------------
+ Kerri     | Partner
+ Maribel   | Gorrissen
+ Gavan     | Hailston
+ Ramona    | Kidson
+ Cal       | Marzellano
+ Nikki     | Bebbell
+ Noellyn   | Dewen
+ Quintina  | 
+ Shermy    | Jeanequin
+ Jeremy    | Swan
+ Paolo     | Samwyse
+ Umberto   | Kelloway
+ Merissa   | Chin
+ Waldon    | Liverseege
+ Lucila    | Bethell
+ Cassie    | Sorsby
+ Ryun      | Haggata
+ Abigael   | Gauvain
+ Cirillo   | 
+ Standford | De Benedictis
+ Pail      | Boyle
+ Suellen   | Milsap
+ Niels     | Sabate
+ Giffie    | Fridaye
+ Adler     | Deppe
+ Langsdon  | Prydden
+ Aimil     | Smeed
+ Maynard   | Marquand
+ Mahalia   | Mapes
+ Rea       | Kirvell
+ Emmy      | Botcherby
+ Marline   | Baldetti
+ Brandtr   | Bourges
+ Vanya     | Sothcott
+ Bartel    | Burgen
+ Ivette    | Brenneke
+ Wright    | Bernt
+ Anson     | 
+ Francine  | Vedishchev
+ Lesley    | Worge
+ Edee      | Tumilty
+ Sanford   | Gallifont
+ Andria    | Hyde-Chambers
+ Dex       | Harbar
+ Daisey    | Webberley
+ Parsifal  | Cullerne
+ Baxter    | Scahill
+ Elka      | Dimond
+ Karlee    | Mc Faul
+ Joelynn   | Pettigrew
+ Carissa   | Elsop
+ Cathi     | Kohrsen
+
+	</pre>
+	
+	<p>
+errors considered: syntax (a lot)
+	</p>
+
+
+    <h1>C14</h1>
+
+
+	<p>
+List the numbers of statuses booked rooms and source of the reservations. 
+Sort the results by the source name in ascending order. 
+	</p>
+	<pre>
+SELECT r.source_name, br.status_name, COUNT(br.broom_id) AS total 
+FROM reservations r, booked_rooms br
+WHERE r.id = br.reservation_id
+GROUP BY r.source_name, br.status_name
+ORDER BY r.source_name ASC;
+	</pre>
+	
+	<pre>
+ source_name | status_name | total 
+-------------+-------------+-------
+ booking.com | inspected   |    28
+ booking.com | dirty       |    27
+ booking.com | check       |    27
+ booking.com | clean       |    22
+ email       | dirty       |    42
+ email       | clean       |    38
+ email       | check       |    48
+ email       | inspected   |    39
+ expedia     | check       |    42
+ expedia     | dirty       |    45
+ expedia     | clean       |    36
+ expedia     | inspected   |    45
+ phone       | inspected   |    56
+ phone       | dirty       |    50
+ phone       | check       |    48
+ phone       | clean       |    40
+ walk-in     | dirty       |    46
+ walk-in     | check       |    52
+ walk-in     | inspected   |    52
+ walk-in     | clean       |    54
+             | dirty       |    39
+             | clean       |    47
+             | inspected   |    36
+             | check       |    41
+	</pre>
+	
+	<p>
+errors considered: no errors
+	</p>
+
+
+    <h1>C15</h1>
+
+
+	<p>
+List the numbers over 50 of statuses booked rooms and source of the reservations. 
+Sort the results by the source name in ascending order. 
+	</p>
+	<pre>
+SELECT r.source_name, br.status_name, COUNT(br.broom_id) AS total 
+FROM reservations r, booked_rooms br
+WHERE r.id = br.reservation_id
+GROUP BY r.source_name, br.status_name
+HAVING COUNT(br.broom_id) >50
+ORDER BY r.source_name ASC;
+	</pre>
+	
+	<pre>
+ source_name | status_name | total 
+-------------+-------------+-------
+ phone       | inspected   |    56
+ walk-in     | check       |    52
+ walk-in     | inspected   |    52
+ walk-in     | clean       |    54
+	</pre>
+	
+	<p>
+errors considered: no errors
+	</p>
+
+
+    <h1>D16</h1>
+
+	<p>
+Name and surname of clients who has at least 1 phone reservation
+	</p>
+	<pre>
+SELECT c.cname, c.csurame
+FROM clients c
+WHERE 1 <=
+	(SELECT COUNT(DISTINCT r.id) 
+	FROM reservations r
+	WHERE c.client_id = r.client_id
+	AND r.source_name = 'phone');
+	</pre>
+	
+	<pre>
+  cname   |  csurame   
+----------+------------
+ Vanya    | Sothcott
+ Maynard  | Marquand
+ Elka     | Dimond
+ Shermy   | Jeanequin
+ Langsdon | Prydden
+ Karlee   | Mc Faul
+ Ivette   | Brenneke
+ Francine | Vedishchev
+ Adler    | Deppe
+ Parsifal | Cullerne
+ Daisey   | Webberley
+ Rea      | Kirvell
+ Ramona   | Kidson
+ Cirillo  | 
+ Quintina | 
+ Wright   | Bernt
+ Cal      | Marzellano
+	</pre>
+	
+	<p>
+errors considered: no errors
+	</p>
+
+
+	
+</div>
+</body>
+</html>

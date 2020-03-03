@@ -1,0 +1,111 @@
+create table reservations (
+	id INT NOT NULL PRIMARY KEY,
+	source_name VARCHAR(20) REFERENCES reserv_sources,
+	client_id INT NOT NULL REFERENCES clients,
+	cancel_status BOOLEAN,
+	prereserv_status BOOLEAN,
+	closed_status  BOOLEAN,
+	accrued_amount MONEY,
+	payed_amount MONEY,
+	r_spec_request TEXT
+);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (1, null, 84, false, false, false, 87.23, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (2, 'phone', 56, true, true, true, 62.81, 150.96, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (3, 'phone', 78, false, true, true, 53.48, 289.09, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (4, 'walk-in', 7, true, false, false, 14.41, 146.11, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (5, 'expedia', 8, false, true, true, 72.9, 263.42, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (6, 'walk-in', 85, false, false, true, 45.11, 262.08, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (7, null, 32, true, true, false, 10.96, 123.7, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (8, 'expedia', 62, false, true, true, 54.41, 214.22, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (9, 'email', 43, true, true, false, 46.16, 173.85, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (10, 'phone', 51, true, true, false, 97.51, 139.63, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (11, 'booking.com', 60, true, false, false, 35.81, 167.11, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (12, 'booking.com', 50, true, true, false, 20.2, 164.11, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (13, 'walk-in', 74, true, true, true, 47.9, 204.46, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (14, 'expedia', 3, false, true, true, 77.04, 198.42, 'Duis at velit eu est congue elementum.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (15, 'expedia', 88, false, false, false, 51.87, 287.64, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (16, 'phone', 86, false, true, false, 27.75, 182.97, 'Ut at dolor quis odio consequat varius.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (17, 'phone', 97, true, false, false, 67.04, 111.38, 'Nullam porttitor lacus at turpis.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (18, 'phone', 60, true, true, false, 23.56, 249.44, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (19, 'booking.com', 78, true, false, false, 16.22, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (20, 'walk-in', 65, true, true, true, 74.0, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (21, 'expedia', 24, true, false, true, 75.98, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (22, 'expedia', 23, true, false, true, 30.01, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (23, null, 2, false, false, false, 31.02, 155.74, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (24, 'email', 62, true, true, false, 74.53, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (25, 'email', 85, true, true, true, 60.4, 158.31, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (26, 'email', 37, true, true, false, 75.51, 150.57, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (27, 'walk-in', 6, true, true, true, 41.01, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (28, 'email', 98, false, false, true, 95.46, 266.09, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (29, 'walk-in', 7, true, false, false, 32.24, 266.1, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (30, 'expedia', 9, false, true, true, 47.78, 271.8, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (31, null, 94, false, true, true, 98.18, 178.96, 'Morbi ut odio.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (32, 'walk-in', 76, true, false, true, 83.26, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (33, 'booking.com', 2, false, true, false, 91.27, 154.71, 'Maecenas rhoncus aliquam lacus.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (34, 'phone', 68, true, false, true, 10.94, 171.5, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (35, null, 55, true, true, true, 94.27, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (36, 'expedia', 49, false, false, true, 66.51, 199.13, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (37, 'phone', 88, true, true, true, 91.72, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (38, null, 29, true, false, false, 35.34, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (39, 'expedia', 40, true, false, true, 69.49, 195.93, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (40, 'expedia', 87, true, true, false, 47.06, 236.98, 'Suspendisse ornare consequat lectus.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (41, 'phone', 23, true, false, true, 19.75, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (42, 'expedia', 95, false, true, false, 55.24, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (43, 'email', 67, false, true, false, 50.56, 123.9, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (44, 'walk-in', 48, false, false, true, 13.04, 142.92, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (45, 'walk-in', 13, true, false, false, 55.62, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (46, 'walk-in', 92, false, true, false, 99.85, 157.63, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (47, 'email', 69, false, false, true, 88.48, 231.76, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (48, 'email', 58, false, false, false, 34.68, 142.73, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (49, 'booking.com', 22, false, false, true, 25.63, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (50, 'walk-in', 83, true, true, false, 78.15, 281.63, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (51, 'expedia', 6, true, false, true, 79.04, 297.13, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (52, 'phone', 96, true, false, true, 20.71, 247.98, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (53, 'walk-in', 67, true, false, false, 48.0, 126.0, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (54, 'phone', 17, true, true, false, 28.64, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (55, 'email', 18, true, true, false, 27.87, 239.5, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (56, 'walk-in', 16, false, false, true, 35.26, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (57, 'walk-in', 10, true, true, true, 66.61, 200.88, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (58, 'phone', 79, false, false, true, 27.12, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (59, null, 46, true, true, true, 16.87, 156.85, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (60, 'walk-in', 49, false, true, false, 29.96, 137.45, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (61, 'phone', 94, true, false, false, 20.3, 254.41, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (62, 'booking.com', 42, true, true, true, 65.45, 176.24, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (63, null, 24, false, false, false, 92.33, 155.21, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (64, null, 40, false, true, false, 10.17, 188.7, 'Pellentesque viverra pede ac diam.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (65, 'phone', 95, false, false, true, 81.86, 202.76, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (66, 'walk-in', 97, false, false, true, 48.48, null, 'Vivamus vestibulum sagittis sapien.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (67, 'walk-in', 75, false, true, true, 58.82, 223.22, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (68, 'phone', 43, false, false, false, 69.57, 203.48, 'Pellentesque eget nunc.');
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (69, 'booking.com', 49, true, true, true, 83.22, 236.75, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (70, 'phone', 96, false, false, true, 67.03, 285.71, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (71, 'expedia', 16, true, false, true, 79.46, 279.82, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (72, 'booking.com', 65, true, true, true, 48.99, 152.05, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (73, 'booking.com', 36, false, true, true, 16.32, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (74, 'walk-in', 57, true, false, true, 13.32, 199.88, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (75, 'expedia', 75, true, true, true, 15.87, 292.51, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (76, 'walk-in', 10, false, false, false, 50.38, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (77, 'expedia', 51, true, false, false, 71.69, 153.19, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (78, null, 70, true, true, true, 45.42, 264.84, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (79, null, 35, false, false, true, 56.52, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (80, null, 45, false, true, false, 78.28, 251.59, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (81, 'email', 13, true, true, false, 56.8, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (82, 'email', 49, true, true, false, 52.07, 165.27, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (83, 'walk-in', 43, false, true, false, 89.52, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (84, null, 27, true, true, true, 32.68, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (85, 'walk-in', 93, false, false, true, 37.49, 274.47, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (86, 'phone', 49, false, true, true, 31.18, 272.9, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (87, 'phone', 49, true, false, true, 49.51, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (88, 'phone', 86, true, false, false, 44.54, 163.18, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (89, 'email', 60, true, true, true, 37.77, 125.87, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (90, null, 96, false, true, false, 93.69, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (91, 'expedia', 37, false, false, true, 45.12, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (92, 'email', 77, true, false, false, 81.42, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (93, 'email', 34, true, true, true, 92.29, 250.23, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (94, 'booking.com', 22, false, false, true, 97.0, 180.53, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (95, 'email', 32, false, true, true, 83.59, 292.84, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (96, 'phone', 34, false, false, false, 60.47, 112.21, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (97, 'email', 76, false, true, true, 27.32, 197.43, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (98, 'email', 82, true, false, false, 62.1, null, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (99, 'booking.com', 7, true, true, false, 92.1, 282.51, null);
+insert into reservations (id, source_name, client_id, cancel_status, prereserv_status, closed_status , accrued_amount, payed_amount, r_spec_request) values (100, null, 68, true, true, false, 89.5, 173.78, null);

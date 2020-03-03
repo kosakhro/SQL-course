@@ -1,0 +1,64 @@
+1. Major subject of studies.
+
+Mathematical Information Technology
+
+2. My experience with databases.
+
+I have more than 10 years of experience working with databases, but not as a developer or other IT specialist. Being a CFO of a large company (more than 2000 employees), the main part of my tasks, on the one hand, was related to obtaining data for analysis, for making decisions, and on the other hand I was stakeholder of IT projects  - business analytics and problem formulating for developers of IT systems, including databases
+
+3. Area of the database (briefly).
+
+The domain in the SQL exercises is a Hotel Reservation System and related data records. The main goal of the will be to store, keep an main process reservations data, including clients, dates, rooms, etc. Clients could be from all the world. One could make a reservation, but other can be hosted. Empty reservations (no rooms booked) are allowed. 
+
+Some important exceptions: no overbooking, overhosting or check-in after check-out are prevented with example data due to Mockaroo functionality restrictions.
+
+
+4. Why this area may be interesting for students, studying relational databases
+
+a) It is the point of view with more then 5 years experience  at the area of hospitality services in the Central Finland. It is very clear to show, how technology helps to improve the quality of service and rise the revenue.
+
+b) It can be the spin-off startup from JYU I'm currently doing my Property Management System. With each JYU IT course it becomes better and will be happy to find partners here and pitch soon on JYU startup venue.
+
+c) Relation and object impedance can be practically solved here
+After Ohjelmointi2 course it was unclear (at least for me), how object-relational impedance mismatch can be solved. I think on this, not too complicated example it may be easier to learn
+ 
+
+
+5. Why did I choose just as many tables and columns as I chose in my database? 
+
+a) First of all a had to narrow the scope of db, because the full one goes beyond 5 ECTS
+
+b) Main entities should be presented, eg Clients, Reservations, Rooms, so it should be reliable database, which can be used in real life
+
+c) Clients. From practice: we have to know clients names and contact details, such as phones, emails, postal addresses. If we are focused on the long-term relationship with our clients, it's good to know him closer: his preferences, language preferences, client category, social media, etc. With all preoccupation and clear customer's intention, we may store some sensible data as id details, credit card numbers 
+
+d) Rooms (or place of stay, if we use ). This is not, what add or remove  every day, but make changes in this table  
+
+e) Reservations. Reservation made by clients and may be in different statuses, also related data are: source of reservation, accrued and payed amount, some comments
+
+f) Rooms booked. In this table we store information of rooms, days, room status, days in and out and check ins and outs.
+
+g) Service tables: countries, room status, reservation sources, accommodation types - we need to keep and use some information, which should be well-structured
+
+h) Hosted - one client could make a reservation, but other could stay in one of the room of this reservation
+
+
+
+
+6. Why did I select just as much sample data for your database as I did? Why not more or less?
+
+It should be split in few blocks. First of all the upper limit is what Mockaroo free service allow to do. 
+
+By simple logic - the number of countries is limited as 249, but country could change - split or unite, so it's better to keep this information as table.
+
+From my experience, I have 43 cottages for rent and in 5 years my client's base is about then 3000 and reservations more then 5000, so I try to keep the proportion taking into account the upper limit
+
+Room status, is just what I use in real life, but I think it should more, or there should be specific tables for technical, cleaning and other side of conditions
+
+
+
+7. Why do I think that my database is useful for future working life?
+
+In few words it is not only useful, but I will start using it right know. Running business in leisure area for 5 years (Ahvenlampi Camping, Saarijärvi) I've noticed how important is to use moder programming tools even in small business. Just one example: to compete on this market I have to use as much sales channels as possible - calls, emails, AirBnB, Booking.com, Expedia etc. But it's almost impossible to use them at the same time without possibility to synchronize all allocations within those channels. The other important point is to have historical information about clients and reservations: this way I could analyze my sales and trends, build a long-term clients relation strategy.
+
+
